@@ -32,7 +32,8 @@ router.post('/register', async (req, res) => {
     if (password.length < 6) {
         errors.push({ msg: "Password must be at least 6 characters"})
     }
-
+   
+    // Display errors or create user
     if (errors.length > 0) {
         res.render('register', {
             errors,
@@ -43,7 +44,47 @@ router.post('/register', async (req, res) => {
             password2
         })
     } else {
-        res.send("Pass")
+        // Validation passed
+        db.user.findOne({ where: { email: email } })
+        .then((user) => {
+            if(user) {
+                errors.push( {msg: "User with that email already exists"} );
+                res.render('register', {
+                    errors,
+                    fullname,
+                    username,
+                    email,
+                    password,
+                    password2
+                });
+            } else {
+                db.user.findOrCreate({
+                    where: {
+                        username: username,
+                    },
+                    defaults: {
+                        fullname,
+                        email,
+                        password
+                    }
+                }).then(([user, created]) => {
+                    
+                    if(created) {
+                        res.render('dashboard', { user })
+                    } else {
+                        errors.push( { msg: "Username is not availible" });
+                        res.render('register', {
+                            errors,
+                            fullname,
+                            username,
+                            email,
+                            password,
+                            password2
+                        });
+                    } 
+                })
+            }
+        });
     }
 })
 
