@@ -4,10 +4,6 @@ const ejsLayouts = require('express-ejs-layouts');
 const bcrypt = require('bcrypt');
 const db = require('./models');
 
-
-
-
-
 // ejs setup
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
@@ -32,19 +28,24 @@ app.post('/register', async (req, res) => {
         username,
         password
     });
-    try {
-        const salt = await bcrypt.genSalt(10);
-        const hash = await bcrypt.hash(password, salt);
-        db.user.create({
-            email,
-            fullname,
-            username,
-            password: hash
-        })
-    } catch (err) {
-        console.log(err);
-    }
-
+    db.user.create({
+        email,
+        fullname,
+        username,
+        password
+    });
+    // try {
+    //     const salt = await bcrypt.genSalt(10);
+    //     const hash = await bcrypt.hash(password, salt);
+    //     db.User.create({
+    //         email,
+    //         fullname,
+    //         username,
+    //         password: hash
+    //     })
+    // } catch (err) {
+    //     console.log(err);
+    // }
 })
 
 // PORT
