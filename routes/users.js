@@ -18,6 +18,7 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
     const { fullname, email, username, password, password2 } = req.body;
     let errors = [];
+
     // Check required fields
     if(!fullname || !email || !password || !password2 || !username) {
         errors.push({ msg: "Please fill in all fields" })
@@ -33,7 +34,7 @@ router.post('/register', async (req, res) => {
         errors.push({ msg: "Password must be at least 6 characters"})
     }
    
-    // Display errors or create user
+    // Display errors or Create user
     if (errors.length > 0) {
         res.render('register', {
             errors,
@@ -67,10 +68,10 @@ router.post('/register', async (req, res) => {
                         email,
                         password
                     }
-                }).then(([user, created]) => {
-                    
+                }).then(([user, created]) => {   
                     if(created) {
-                        res.render('dashboard', { user })
+                        req.flash('success_msg', 'You are now registered and can log in');
+                        res.redirect('/users/login')
                     } else {
                         errors.push( { msg: "Username is not availible" });
                         res.render('register', {
