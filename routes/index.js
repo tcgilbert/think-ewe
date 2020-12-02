@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-router.get('/profile', async (req, res) => {
-    let name = 
-    res.send()
+router.get('/', (req, res) => {
+    res.render('welcome')
 })
+
+module.exports = router;
