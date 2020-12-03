@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/create-post', (req, res) => {
+    console.log('heyy');
     res.render('book-search')
 })
 
