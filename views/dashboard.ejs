@@ -1,3 +1,32 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.fullname %>!</p>
+
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">Welcome <%= user.fullname %>!</h1>
+        <p class="text-center lead mb-3">To get started, Who are some of your favorite authors?</p>
+        <%- include ('partials/messages.ejs') %> 
+
+        <form action="/TBD" method="POST">
+          <div class="form-group">
+            <label for="email">Favorite Authors</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Author Name"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+
+        <p class="lead mt-4">
+        <a href="/profile">Skip this step</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
 <a href="/users/logout" class="btn btn-secondary">Logout</a>

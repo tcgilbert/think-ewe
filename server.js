@@ -5,17 +5,19 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-
 const app = express();
 
 // Passport Config
 require('./config/passport')(passport);
 
-// ejs setup
+// Static files
+app.use('/static', express.static('public'));
+
+// Ejs setup
 app.use(ejsLayouts);
 app.set('view engine', 'ejs');
 
-//body parser
+// Body parser
 app.use(express.urlencoded({ extended: false }));
 
 // Express Session
@@ -40,10 +42,10 @@ app.use((req, res, next) => {
     next();
 })
 
-
-//routes
+// Routes
 app.use('/', require('./routes/index'))
-app.use('/users', require('./routes/users'));
+app.use('/users', require('./routes/usersAuth'));
+app.use('/profile', require('./routes/userProfile'));
 
 
 // PORT

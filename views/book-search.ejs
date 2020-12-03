@@ -1,0 +1,23 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">New Entry</h1>
+        <%- include ('partials/messages.ejs') %> 
+        <form action="/profile/books" method="GET">
+          <div class="form-group">
+            <input
+              type="text"
+              id="search1"
+              name="search2"
+              class="form-control"
+              placeholder="Search Book"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Search</button>
+        </form>
+        <p class="lead mt-4">
+           <a href="/profile">cancel</a>
+        </p>
+      </div>
+    </div>
+  </div>
