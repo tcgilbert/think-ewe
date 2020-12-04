@@ -15,7 +15,7 @@ router.get('/find-books', async (req, res) => {
     console.log(req.query);
     try {
         let books = [];
-        let axiosRes =  await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.search}&key=${process.env.GOOGLE_API_KEY}`);
+        let axiosRes =  await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.search}&maxResults=20&key=${process.env.GOOGLE_API_KEY}`);
         let resArray = axiosRes.data.items;
 
         resArray.forEach((ele) => {
