@@ -17,3 +17,25 @@ body {
     border-radius: 5px;
 }
 
+.img-frame {
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+}
+
+.img-container {
+    width: 150px;
+    height: 230px;
+}
+
+#book-img {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
