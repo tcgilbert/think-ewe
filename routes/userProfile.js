@@ -8,14 +8,14 @@ router.get('/', (req, res) => {
     res.render('profile');
 })
 
-router.get('/create-post', (req, res) => {
-    console.log('heyy');
+
+
+router.get('/find-books', (req, res) => {
+    console.log('query');
     res.render('book-search')
 })
 
-router.get('/books', (req, res) => {
-    console.log(req.query);
-    res.send('book results')
-})
+
+
 
 module.exports = router;

@@ -3,6 +3,7 @@ const ejsLayouts = require('express-ejs-layouts');
 const db = require('./models');
 const flash = require('connect-flash');
 const session = require('express-session');
+
 const passport = require('passport');
 
 const app = express();
@@ -26,6 +27,8 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }));
+
+
 
 // Passport Middleware
 app.use(passport.initialize());
