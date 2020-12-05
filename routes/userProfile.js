@@ -18,7 +18,24 @@ router.get("/", ensureAuthenticated, async (req, res) => {
   res.render("profile", { book, posts });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+    console.log(req.body);
+    let [bookPost, created] = await db.book_post.findOrCreate({
+      where: {
+        userId: req.body.userId,
+        title: req.body.title
+      },
+      defaults: {
+        title: req.body.title,
+        author: req.body.author,
+        cover: req.body.imgUrl,
+        rating: req.body.rating,
+        blurb: req.body.blurb,
+        userId: req.body.userId
+      }
+    });
+    
+
     res.redirect('/profile');
 })
 
@@ -72,7 +89,7 @@ router.get("/create", async (req, res) => {
     imgUrl: req.query.imageUrl,
     create: true,
   };
-  res.render("profile", { book, posts });
+  res.render("profile", { book, posts, user: req.user.dataValues });
 });
 
 module.exports = router;
