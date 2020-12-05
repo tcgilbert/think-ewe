@@ -54,7 +54,7 @@ body {
     cursor: pointer;
 }
 
-#rating-displayed {
+.rating-displayed {
     font-size: large;
     letter-spacing: 0.5px;
 }
