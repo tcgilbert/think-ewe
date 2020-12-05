@@ -6,17 +6,29 @@ body {
     border: 2px solid red;
 }
 
+/* Profile page styling */
+
 .profile-nav {
     margin-top: 100px;
 }
 
-.well {
+.book-post {
     padding: 10px 3px;
     margin-bottom: 5px;
     border: 1px solid lightgray;
     border-radius: 5px;
 }
 
+.post-author {
+    margin-bottom: 5px;
+}
+
+.post-img {
+    width: 105px;
+    height: 159px;
+}
+
+/* Book search styling */
 .img-frame {
     background-color: lightgray;
     display: flex;
@@ -46,6 +58,7 @@ body {
     margin-right: 10px;
 }
 
+/* book post form styling */
 .stars {
     margin: 0 auto;
 }

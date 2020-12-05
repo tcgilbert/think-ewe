@@ -15,7 +15,7 @@ router.get("/", ensureAuthenticated, async (req, res) => {
   let book = {
     create: false,
   };
-  res.render("profile", { book, posts });
+  res.render("profile", { book, posts, user: req.user.dataValues });
 });
 
 router.post('/', async (req, res) => {
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
       defaults: {
         title: req.body.title,
         author: req.body.author,
-        cover: req.body.imgUrl,
+        cover: req.body.cover,
         rating: req.body.rating,
         blurb: req.body.blurb,
         userId: req.body.userId
