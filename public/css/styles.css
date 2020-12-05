@@ -39,3 +39,21 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.star {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.star:hover {
+    cursor: pointer;
+}
+
+
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

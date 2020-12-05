@@ -35,7 +35,9 @@
                 <p>By: <%= book.authors %></p>
               </div>
               <div class="stars">
-
+                <img id="star-one"  class="star" src="/static/img/star-empty.svg" alt="star outline">
+                <img id="star-two"  class="star" src="/static/img/star-empty.svg" alt="star outline">
+                <img id="star-three"  class="star" src="/static/img/star-empty.svg" alt="star outline">
               </div>
             </div>
           </div>
@@ -104,3 +106,61 @@
 <div>
   <a href="/profile/find-books">Create new post</a>
 </div>
+
+<script>
+  const starOne = document.getElementById('star-one');
+  const starTwo = document.getElementById('star-two');
+  const starThree = document.getElementById('star-three');
+  const notSelected = true;
+
+  starOne.addEventListener("mouseover", () => {
+    console.log("on");
+    if (notSelected) {
+      starOne.setAttribute("src", "/static/img/star.svg");
+    }
+  });
+
+  starOne.addEventListener("mouseout", () => {
+    console.log("off");
+    if (notSelected) {
+      starOne.setAttribute("src", "/static/img/star-empty.svg");
+    }
+  });
+
+  starTwo.addEventListener("mouseover", () => {
+    console.log("on");
+    if (notSelected) {
+      starOne.setAttribute("src", "/static/img/star.svg");
+      starTwo.setAttribute("src", "/static/img/star.svg");
+    }
+  });
+
+  starTwo.addEventListener("mouseout", () => {
+    console.log("off");
+    if (notSelected) {
+      starOne.setAttribute("src", "/static/img/star-empty.svg");
+      starTwo.setAttribute("src", "/static/img/star-empty.svg");
+    }
+  });
+
+  starThree.addEventListener("mouseover", () => {
+    console.log("on");
+    if (notSelected) {
+      starOne.setAttribute("src", "/static/img/star.svg");
+      starTwo.setAttribute("src", "/static/img/star.svg");
+      starThree.setAttribute("src", "/static/img/star.svg");
+    }
+  });
+
+  starThree.addEventListener("mouseout", () => {
+    console.log("off");
+    if (notSelected) {
+      starOne.setAttribute("src", "/static/img/star-empty.svg");
+      starTwo.setAttribute("src", "/static/img/star-empty.svg");
+      starThree.setAttribute("src", "/static/img/star-empty.svg");
+    }
+  });
+
+
+
+</script>
