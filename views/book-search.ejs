@@ -39,7 +39,7 @@
           <p class="card-text"><%= book.authors[0] %></p>
           <% } %>
 
-          <form action="/profile/create-post" method="POST">
+          <form action="/profile/create" method="GET">
             <input type="hidden" name="title" value="<%= book.title %> " />
             <input type="hidden" name="authors" value="<%= book.authors %> " />
             <input type="hidden" name="imageUrl" value="<%= book.imgUrl %> " />

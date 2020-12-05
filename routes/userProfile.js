@@ -11,15 +11,20 @@ router.get("/", ensureAuthenticated, async (req, res) => {
       userId: req.user.dataValues.id,
     },
   });
-  console.log(posts);
+  console.log(req.user);
   let book = {
     create: false,
   };
   res.render("profile", { book, posts });
 });
 
+router.post('/', (req, res) => {
+    res.redirect('/profile');
+})
+
 router.get("/find-books", async (req, res) => {
   let books = [];
+  console.log(req.user)
   try {
     if (req.query.search) {
       let axiosRes = await axios.get(
@@ -54,15 +59,21 @@ router.get("/find-books", async (req, res) => {
   }
 });
 
-router.post("/create-post", (req, res) => {
+router.get("/create", async (req, res) => {
   console.log(req.body);
+  console.log(req.user)
+  let posts = await db.book_post.findAll({
+    where: {
+      userId: req.user.dataValues.id,
+    },
+  });
   let book = {
     title: req.body.title,
     authors: req.body.authors,
     imgUrl: req.body.imageUrl,
     create: true,
   };
-  res.render("profile", { book });
+  res.render("profile", { book, posts });
 });
 
 module.exports = router;
