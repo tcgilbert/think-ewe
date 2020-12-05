@@ -15,7 +15,7 @@ router.get("/", ensureAuthenticated, async (req, res) => {
   let book = {
     create: false,
   };
-  res.render("profile", { book, posts, user: req.user.dataValues });
+  res.render("profile", { book, posts, user: req.user.dataValues, edit: false });
 });
 
 router.post('/', async (req, res) => {
@@ -34,10 +34,8 @@ router.post('/', async (req, res) => {
         userId: req.body.userId
       }
     });
-    
-
     res.redirect('/profile');
-})
+});
 
 router.get("/find-books", async (req, res) => {
   let books = [];
@@ -77,7 +75,6 @@ router.get("/find-books", async (req, res) => {
 });
 
 router.get("/create", async (req, res) => {
-  
   let posts = await db.book_post.findAll({
     where: {
       userId: req.user.dataValues.id,
@@ -89,7 +86,20 @@ router.get("/create", async (req, res) => {
     imgUrl: req.query.imageUrl,
     create: true,
   };
-  res.render("profile", { book, posts, user: req.user.dataValues });
+  res.render("profile", { book, posts, user: req.user.dataValues, edit: false });
 });
+
+router.get("/edit", async (req, res) => {
+  let posts = await db.book_post.findAll({
+    where: {
+      userId: req.user.dataValues.id,
+    },
+  });
+  let book = {
+    create: false,
+  };
+  
+  res.render("profile", { posts, book, edit: true, user: req.user.dataValues })
+})
 
 module.exports = router;

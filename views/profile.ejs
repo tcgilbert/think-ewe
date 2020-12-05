@@ -1,5 +1,5 @@
-<% if (book.create) { %>
-<!-- Modal -->
+<% if (book.create && !edit) { %>
+<!-- Create Entry Modal -->
 <div
   class="modal"
   id="staticBackdrop"
@@ -91,6 +91,50 @@
 </div>
 <% } %>
 
+<% if (edit && !book.create) { %>
+<!-- Edit Profile Modal -->
+<div
+  class="modal"
+  id="staticBackdrop"
+  data-show="true"
+  data-backdrop="static"
+  data-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit Profile</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <form id="book-post-form" action="/profile" method="POST">
+          <input type="hidden" name="title" value="<%= book.title  %>" />
+          <input type="hidden" name="author" value="<%= book.authors  %>" />
+          <input type="hidden" name="cover" value="<%= book.imgUrl %>" />
+          <input id="rating" type="hidden" name="rating" value="" />
+          <input type="hidden" name="userId" value="<%= user.id %>" />
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+        <a href="/profile">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
+
 <!-- Bio -->
 <div class="container-fluid">
   <div class="row">
@@ -105,6 +149,7 @@
         />
         <h2>Thomas</h2>
         <h4>@tcgilbert</h4>
+        <a href="/profile/edit">Edit Profile</a>
         <br />
         <h6>Bio</h6>
         <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -199,4 +244,5 @@
 <% if (book.create) { %>
 <script src="/static/js/rating.js"></script>
 <% } %>
+
 
