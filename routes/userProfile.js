@@ -60,17 +60,16 @@ router.get("/find-books", async (req, res) => {
 });
 
 router.get("/create", async (req, res) => {
-  console.log(req.body);
-  console.log(req.user)
+  
   let posts = await db.book_post.findAll({
     where: {
       userId: req.user.dataValues.id,
     },
   });
   let book = {
-    title: req.body.title,
-    authors: req.body.authors,
-    imgUrl: req.body.imageUrl,
+    title: req.query.title,
+    authors: req.query.authors,
+    imgUrl: req.query.imageUrl,
     create: true,
   };
   res.render("profile", { book, posts });
