@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
@@ -6,8 +5,14 @@ const passport = require('passport');
 const db = require('../models');
 const { ensureAuthenticated } = require('../config/auth');
 
-router.get('/', ensureAuthenticated, (req, res) => {
-    console.log(req.user);
+router.get('/', ensureAuthenticated, async (req, res) => {
+    
+    let posts = await db.book_post.findAll({
+        where: {
+            userId: req.user.dataValues.id
+        }
+    });
+    console.log(posts);
     let book = {
         create: false,
     }
@@ -16,7 +21,6 @@ router.get('/', ensureAuthenticated, (req, res) => {
 
 
 router.get('/find-books', async (req, res) => {
-    console.log(req.query);
     let books = [];
     try {
         if (req.query.search) {
