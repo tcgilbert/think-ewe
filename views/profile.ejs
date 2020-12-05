@@ -34,22 +34,53 @@
                 <h3><%= book.title %></h3>
                 <p>By: <%= book.authors %></p>
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mt-3">
+              <h5 style="display: inline;" class="mt-2">Your Rating: </h5>
+              <span id="rating-displayed"></span>
               <div class="stars">
-                <img id="star-one"  class="star" src="/static/img/star-empty.svg" alt="star outline">
-                <img id="star-two"  class="star" src="/static/img/star-empty.svg" alt="star outline">
-                <img id="star-three"  class="star" src="/static/img/star-empty.svg" alt="star outline">
+                <img
+                  id="star-one"
+                  class="star"
+                  src="/static/img/star-empty.svg"
+                  alt="star outline"
+                />
+                <img
+                  id="star-two"
+                  class="star"
+                  src="/static/img/star-empty.svg"
+                  alt="star outline"
+                />
+                <img
+                  id="star-three"
+                  class="star"
+                  src="/static/img/star-empty.svg"
+                  alt="star outline"
+                />
+
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mt-3">
+              <h5>Your Thoughts: (optional)</h5>
+              <textarea
+                id="blurb"
+                name="blurb"
+                form="book-post-form"
+              ></textarea>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <form action="/profile" method="POST">
+        <form id="book-post-form" action="/profile" method="POST">
           <input type="hidden" name="title" value="<%= book.title  %>" />
           <input type="hidden" name="author" value="<%= book.authors  %>" />
           <input type="hidden" name="cover" value="<%= book.imgUrl %>" />
           <input id="rating" type="hidden" name="rating" value="" />
-          <input type="hidden" name="blurb" value="<%= book.imgUrl %>" />
           <input type="hidden" name="userId" value="<%= book.imgUrl %>" />
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
@@ -111,6 +142,5 @@
 </div>
 
 <% if (book.create) { %>
- <script src="/static/js/rating.js"></script>
+<script src="/static/js/rating.js"></script>
 <% } %>
-

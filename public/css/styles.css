@@ -46,11 +46,24 @@ body {
     margin-right: 10px;
 }
 
+.stars {
+    margin: 0 auto;
+}
+
 .stars:hover {
     cursor: pointer;
 }
 
+#rating-displayed {
+    font-size: large;
+    letter-spacing: 0.5px;
+}
 
+
+#blurb {
+    width: 100%;
+    margin-top: 5px;
+}
 
 .rating {
     display: flex;
