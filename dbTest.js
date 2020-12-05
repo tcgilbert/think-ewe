@@ -1,10 +1,10 @@
 const db = require('./models');
 
 db.book_post.create({
-    title: "Island",
-    author: "Aldous Huxley",
-    cover: "http://books.google.com/books/content?id=ARHtAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    rating: 3,
-    blurb: "I love this book sooo freaking much",
-    userId: 1
+    title: "Test",
+    author: "Tester McTest",
+    cover: "http://books.google.com/books/content?id=s7sKxilR83YC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    rating: 1,
+    blurb: "test test test test test",
+    userId: 2
 }).then((res) => console.log(res));

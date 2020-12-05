@@ -15,8 +15,9 @@
   />
 </form>
 
-
 <div class="container-fluid mt-4">
+  <% if (listBooks) { %>
+
   <div class="row">
     <% books.forEach((book) => { %>
     <div class="col">
@@ -39,9 +40,9 @@
           <% } %>
 
           <form action="/profile/create-post" method="POST">
-            <input type="hidden" name="title" value="<%= book.title %> ">
-            <input type="hidden" name="authors" value="<%= book.authors %> ">
-            <input type="hidden" name="imageUrl" value="<%= book.imgUrl %> ">
+            <input type="hidden" name="title" value="<%= book.title %> " />
+            <input type="hidden" name="authors" value="<%= book.authors %> " />
+            <input type="hidden" name="imageUrl" value="<%= book.imgUrl %> " />
             <button type="submit" class="btn btn-primary">Select</button>
           </form>
         </div>
@@ -49,6 +50,7 @@
     </div>
     <% }) %>
   </div>
+  <% } %>
 </div>
 
 <script>
