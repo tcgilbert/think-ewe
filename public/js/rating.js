@@ -1,6 +1,7 @@
 const starOne = document.getElementById('star-one');
 const starTwo = document.getElementById('star-two');
 const starThree = document.getElementById('star-three');
+const rating = document.getElementById('rating');
 let notSelected = true;
 
 
@@ -59,10 +60,12 @@ starOne.addEventListener("click", () => {
     console.log('clicked star one')
     if (notSelected) {
         notSelected = false;
+        rating.setAttribute("value", "1");
         starOne.setAttribute("src", "/static/img/star.svg");
     }
     else {
         notSelected = true;
+        rating.setAttribute("value", "");
         starOne.setAttribute("src", "/static/img/star-empty.svg");
         starTwo.setAttribute("src", "/static/img/star-empty.svg");
         starThree.setAttribute("src", "/static/img/star-empty.svg");
@@ -73,11 +76,13 @@ starTwo.addEventListener("click", () => {
     console.log('clicked star one')
     if (notSelected) {
         notSelected = false;
+        rating.setAttribute("value", "2");
         starOne.setAttribute("src", "/static/img/star.svg");
         starTwo.setAttribute("src", "/static/img/star.svg");
     }
     else {
         notSelected = true;
+        rating.setAttribute("value", "");
         starOne.setAttribute("src", "/static/img/star-empty.svg");
         starTwo.setAttribute("src", "/static/img/star-empty.svg");
         starThree.setAttribute("src", "/static/img/star-empty.svg");
@@ -88,12 +93,14 @@ starThree.addEventListener("click", () => {
     console.log('clicked star one')
     if (notSelected) {
         notSelected = false;
+        rating.setAttribute("value", "3");
         starOne.setAttribute("src", "/static/img/star.svg");
         starTwo.setAttribute("src", "/static/img/star.svg");
         starThree.setAttribute("src", "/static/img/star.svg");
     }
     else {
         notSelected = true;
+        rating.setAttribute("value", "");
         starOne.setAttribute("src", "/static/img/star-empty.svg");
         starTwo.setAttribute("src", "/static/img/star-empty.svg");
         starThree.setAttribute("src", "/static/img/star-empty.svg");
