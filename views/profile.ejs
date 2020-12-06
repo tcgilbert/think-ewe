@@ -245,12 +245,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col blurb">
-                <p>
+              <div class="col blurb d-flex flex-column justify-content-between">
+                <p class="p-1">
                   <strong><%= user.username %></strong> - <%=
                   post.dataValues.blurb %>
                 </p>
-                <div>
+                <div class="p-2 ml-auto">
                   <form action="/profile/book-post" method="POST">
                     <input
                       type="hidden"
@@ -262,7 +262,7 @@
                       name="userId"
                       value="<%= post.dataValues.userId%>"
                     />
-                    <button type="submit">Delete</button>
+                    <button class="btn btn-small btn-info" type="submit">Delete</button>
                   </form>
                 </div>
               </div>
