@@ -1,33 +1,91 @@
-
 <div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body">
-        <h1 class="text-center mb-3">Welcome <%= user.fullname %>!</h1>
-        <p class="text-center lead mb-3">To get started, tell us a little about yourself?</p>
-        <%- include ('partials/messages.ejs') %> 
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">Welcome <%= user.fullname %>!</h1>
+      <p class="text-center lead mb-3">
+        To get started, tell us a little about yourself?
+      </p>
+      <%- include ('partials/messages.ejs') %>
 
-        <form id="dash-form" action="/dashboard" method="POST">
-          <div class="form-group">
-            <label for="email">Select Avatar</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-control"
-              placeholder="Avatar"
+      <form id="dash-form" action="/dashboard" method="POST">
+        <div class="avatar-container">
+          <div class="d-flex justify-content-between">
+            <img
+              id="male1"
+              class="avatar"
+              src="/static/img/avatars/male1.png"
+              alt=""
+            />
+            <img
+              id="male2"
+              class="avatar"
+              src="/static/img/avatars/male2.png"
+              alt=""
+            />
+            <img
+              id="male3"
+              class="avatar"
+              src="/static/img/avatars/male3.png"
+              alt=""
+            />
+            <img
+              id="male4"
+              class="avatar"
+              src="/static/img/avatars/male4.png"
+              alt=""
+            />
+            <img
+              id="male5"
+              class="avatar"
+              src="/static/img/avatars/male5.png"
+              alt=""
             />
           </div>
-          <label for="bio-text">Enter Bio: (optional)</label>
-          <textarea id="bio-text" name="bio" form="dash-form"></textarea>
-          <button type="submit" class="btn btn-primary btn-block">Submit</button>
-        </form>
+          <div class="d-flex justify-content-between">
+            <img
+              id="female1"
+              class="avatar"
+              src="/static/img/avatars/female1.png"
+              alt=""
+            />
+            <img
+              id="female2"
+              class="avatar"
+              src="/static/img/avatars/female2.png"
+              alt=""
+            />
+            <img
+              id="female3"
+              class="avatar"
+              src="/static/img/avatars/female3.png"
+              alt=""
+            />
+            <img
+              id="female4"
+              class="avatar"
+              src="/static/img/avatars/female4.png"
+              alt=""
+            />
+            <img
+              id="female5"
+              class="avatar"
+              src="/static/img/avatars/female5.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <input id="avatar" type="hidden" name="avatar" value="" />
+        <label for="bio-text">Enter Bio: (optional)</label>
+        <textarea id="bio-text" name="bio" form="dash-form"></textarea>
+        <button type="submit" class="btn btn-info btn-block">Submit</button>
+      </form>
 
-        <p class="lead mt-4">
-        </p>
-      </div>
+      <p class="lead mt-4"></p>
     </div>
   </div>
-
-
+</div>
 
 <a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+<script src="/static/js/avatarSelection.js"></script>
+

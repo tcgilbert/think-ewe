@@ -20,12 +20,13 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
 });
 
 router.post('/dashboard', (req, res) => {
-    let { bio } = req.body;
+    let { bio, avatar } = req.body;
     db.user
     .update(
       {
         registered: true,
         bio,
+        avatar
       },
       {
         where: {
