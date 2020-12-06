@@ -116,13 +116,14 @@ router.get("/edit", async (req, res) => {
 
 router.post("/edit", (req, res) => {
   console.log("ENTERED THE POST ROUTE");
-  let { fullname, bio } = req.body;
+  let { fullname, bio, avatar } = req.body;
   
   db.user
     .update(
       {
         fullname,
         bio,
+        avatar
       },
       {
         where: {
