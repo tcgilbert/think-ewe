@@ -11,7 +11,6 @@ router.get("/", ensureAuthenticated, async (req, res) => {
       userId: req.user.dataValues.id,
     },
   });
-
   let book = {
     create: false,
   };
@@ -20,6 +19,7 @@ router.get("/", ensureAuthenticated, async (req, res) => {
     posts,
     user: req.user.dataValues,
     edit: false,
+    isLoggedIn: true
   });
 });
 
@@ -72,9 +72,9 @@ router.get("/find-books", async (req, res) => {
           }
         });
       }
-      res.render("book-search", { books, listBooks: true });
+      res.render("book-search", { books, listBooks: true, isLoggedIn: true });
     } else {
-      res.render("book-search", { listBooks: false });
+      res.render("book-search", { listBooks: false, isLoggedIn: true });
     }
   } catch (err) {
     console.log("This error was caught " + err);
@@ -98,6 +98,7 @@ router.get("/create", async (req, res) => {
     posts,
     user: req.user.dataValues,
     edit: false,
+    isLoggedIn: true
   });
 });
 
@@ -111,7 +112,7 @@ router.get("/edit", async (req, res) => {
   let book = {
     create: false,
   };
-  res.render("profile", { posts, book, edit: true, user: req.user.dataValues });
+  res.render("profile", { posts, book, edit: true, user: req.user.dataValues, isLoggedIn: true });
 });
 
 router.post("/edit", (req, res) => {

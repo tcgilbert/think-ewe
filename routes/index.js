@@ -6,7 +6,10 @@ const db = require('../models');
 
 // Welcome Page
 router.get('/', (req, res) => {
-    res.render('welcome')
+  console.log(req.user);
+    if (req.user == null) {
+      res.render('welcome', { isLoggedIn: false})
+    }
 })
 
 // Dashboard
@@ -14,7 +17,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
     if (req.user.registered) {
         res.redirect('/profile');
     } else {
-        res.render('dashboard', { user: req.user });
+        res.render('dashboard', { user: req.user, isLoggedIn: true });
     }
 
 });

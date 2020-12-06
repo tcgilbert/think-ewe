@@ -23,23 +23,39 @@
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="/">Think Ewe</a>
       <div class="d-flex">
-        <a
-          class="btn btn-outline-danger my-2 my-sm-0"
-          href="/users/logout"
-          class="btn btn-secondary"
-          >Logout</a
-        >
+        <% if (isLoggedIn) { %>
         <a
           class="btn btn-outline-danger my-2 my-sm-0"
           href="/profile"
           class="btn btn-secondary"
           >Profile</a
         >
+        <a
+          class="btn btn-outline-danger my-2 my-sm-0"
+          href="/users/logout"
+          class="btn btn-secondary"
+          >LogOut</a
+        >
+        <% } else { %>
+        <a
+          class="btn btn-outline-danger my-2 my-sm-0"
+          href="/users/login"
+          class="btn btn-secondary"
+          >LogIn</a
+        >
+        <a
+          class="btn btn-outline-danger my-2 my-sm-0"
+          href="/users/register"
+          class="btn btn-secondary"
+          >Register</a
+        >
+        <% } %>
+
         <form action="/users/login" method="POST">
           <input type="hidden" name="email" value="tcgilbert94@gmail.com" />
           <input type="hidden" name="password" value="Tbird131" />
           <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-            Login
+            Developer login
           </button>
         </form>
       </div>

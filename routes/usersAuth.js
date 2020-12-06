@@ -6,7 +6,7 @@ const db = require('../models');
 
 // Login Page
 router.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', {isLoggedIn: false})
 });
 
 // Login Handle
@@ -27,7 +27,7 @@ router.get('/logout', (req, res) => {
 
 // Registration Page
 router.get('/register', (req, res) => {
-    res.render('register')
+    res.render('register', {isLoggedIn: false})
 });
 
 // Registration Handle
@@ -68,7 +68,8 @@ router.post('/register', async (req, res) => {
             username,
             email,
             password,
-            password2
+            password2,
+            isLoggedIn: false
         })
     } else {
         // Validation passed
@@ -82,7 +83,8 @@ router.post('/register', async (req, res) => {
                     username,
                     email,
                     password,
-                    password2
+                    password2,
+                    isLoggedIn: false
                 });
             } else {
                 db.user.findOrCreate({
@@ -107,7 +109,8 @@ router.post('/register', async (req, res) => {
                             username,
                             email,
                             password,
-                            password2
+                            password2,
+                            isLoggedIn: false
                         });
                     } 
                 })
