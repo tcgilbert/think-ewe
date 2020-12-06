@@ -33,6 +33,15 @@ body {
     height: 159px;
 }
 
+.blurb {
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.title-container {
+    width: 300;
+}
+
 textarea {
     width: 100%;
 }

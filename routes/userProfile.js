@@ -135,4 +135,16 @@ router.post("/edit", (req, res) => {
     });
 });
 
+router.post("/book-post", (req, res) => {
+  console.log("this delete button works");
+
+  db.book_post.destroy({
+    where: {
+      id: req.body.id
+    }
+  }).then((dbRes) => {
+    res.redirect('/profile');
+  })
+});
+
 module.exports = router;
