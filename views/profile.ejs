@@ -141,18 +141,18 @@
     <div class="col-md-auto helper">
       <div class="profile-pic mt-5">
         <img
-          class="img-thumbnail"
-          src="/static/img/blank-user.png"
+          id="profile-pic"
+          src="/static/img/male1.png"
           alt="profile picture"
           width="300"
           height="300"
         />
-        <h2>Thomas</h2>
-        <h4>@tcgilbert</h4>
-        <a href="/profile/edit">Edit Profile</a>
+        <h2><%= user.fullname %> </h2>
+        <h4><%= user.username %> </h4>
         <br />
-        <h6>Bio</h6>
+        <h6 style="display: inline;">Bio</h6>
         <p id="bio"><%= user.bio %> </p>
+        <a href="/profile/edit">Edit Profile</a>
       </div>
     </div>
 

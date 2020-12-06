@@ -7,6 +7,11 @@ body {
 }
 
 /* Profile page styling */
+#profile-pic {
+    border-radius: 100%;
+    background-color: lightblue;
+    
+}
 
 .profile-nav {
     margin-top: 100px;
