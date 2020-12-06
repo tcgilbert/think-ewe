@@ -32,12 +32,22 @@ router.get('/register', (req, res) => {
 
 // Registration Handle
 router.post('/register', async (req, res) => {
-    const { fullname, email, username, password, password2 } = req.body;
+    const { fullname, email, username, password, password2, bio } = req.body;
+    console.log(bio);
     let errors = [];
 
     // Check required fields
     if(!fullname || !email || !password || !password2 || !username) {
         errors.push({ msg: "Please fill in all fields" })
+    }
+
+    // Check Email
+    function emailIsValid(ele) {
+        return /\S+@\S+\.\S+/.test(ele);
+    }
+
+    if (!emailIsValid(email)) {
+        errors.push({ msg: "Email is not valid" })
     }
 
     // Check passwords match
@@ -82,7 +92,8 @@ router.post('/register', async (req, res) => {
                     defaults: {
                         fullname,
                         email,
-                        password
+                        password,
+                        bio
                     }
                 }).then(([user, created]) => {   
                     if(created) {

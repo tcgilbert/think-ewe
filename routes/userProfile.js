@@ -11,7 +11,7 @@ router.get("/", ensureAuthenticated, async (req, res) => {
       userId: req.user.dataValues.id,
     },
   });
-  console.log(req.user);
+  console.log(req.user.dataValues.bio)
   let book = {
     create: false,
   };
@@ -90,6 +90,7 @@ router.get("/create", async (req, res) => {
 });
 
 router.get("/edit", async (req, res) => {
+  console.log(req.user)
   let posts = await db.book_post.findAll({
     where: {
       userId: req.user.dataValues.id,
