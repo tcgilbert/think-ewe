@@ -117,7 +117,16 @@
         </button>
       </div>
       <div class="modal-body">
+        <form id="edit-profile" action="/profile/edit" method="POST">
+          <div class="form-group">
+            <label for="name-edit">Name</label> <br>
+            <input id="name-edit" type="text" name="fullname" value="<%= user.fullname %>">
+          </div>
 
+          <label for="bio-edit">Bio</label>
+          <textarea id="bio-edit" name="bio" form="edit-profile"><%= user.bio %></textarea>
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
       </div>
       <div class="modal-footer">
         <form id="book-post-form" action="/profile" method="POST">
@@ -126,7 +135,6 @@
           <input type="hidden" name="cover" value="<%= book.imgUrl %>" />
           <input id="rating" type="hidden" name="rating" value="" />
           <input type="hidden" name="userId" value="<%= user.id %>" />
-          <button type="submit" class="btn btn-primary">Edit</button>
         </form>
         <a href="/profile">Cancel</a>
       </div>

@@ -11,35 +11,40 @@ router.get("/", ensureAuthenticated, async (req, res) => {
       userId: req.user.dataValues.id,
     },
   });
-  console.log(req.user.dataValues.bio)
+
   let book = {
     create: false,
   };
-  res.render("profile", { book, posts, user: req.user.dataValues, edit: false });
+  res.render("profile", {
+    book,
+    posts,
+    user: req.user.dataValues,
+    edit: false,
+  });
 });
 
-router.post('/', async (req, res) => {
-    console.log(req.body);
-    let [bookPost, created] = await db.book_post.findOrCreate({
-      where: {
-        userId: req.body.userId,
-        title: req.body.title
-      },
-      defaults: {
-        title: req.body.title,
-        author: req.body.author,
-        cover: req.body.cover,
-        rating: req.body.rating,
-        blurb: req.body.blurb,
-        userId: req.body.userId
-      }
-    });
-    res.redirect('/profile');
+router.post("/", async (req, res) => {
+  console.log(req.body);
+  let [bookPost, created] = await db.book_post.findOrCreate({
+    where: {
+      userId: req.body.userId,
+      title: req.body.title,
+    },
+    defaults: {
+      title: req.body.title,
+      author: req.body.author,
+      cover: req.body.cover,
+      rating: req.body.rating,
+      blurb: req.body.blurb,
+      userId: req.body.userId,
+    },
+  });
+  res.redirect("/profile");
 });
 
 router.get("/find-books", async (req, res) => {
   let books = [];
-  console.log(req.user)
+  console.log(req.user);
   try {
     if (req.query.search) {
       let axiosRes = await axios.get(
@@ -48,27 +53,29 @@ router.get("/find-books", async (req, res) => {
       let resArray = axiosRes.data.items;
 
       if (resArray !== "undefined") {
-          resArray.forEach((ele) => {
-            if (ele.volumeInfo.title 
-                && ele.volumeInfo.authors
-                && ele.volumeInfo.publisher
-                && ele.volumeInfo.publishedDate
-                && ele.volumeInfo.imageLinks) {
-                    let book = {
-                      title: ele.volumeInfo.title,
-                      authors: ele.volumeInfo.authors,
-                      publisher: ele.volumeInfo.publisher,
-                      publishedDate: ele.volumeInfo.publishedDate,
-                      imgUrl: ele.volumeInfo.imageLinks.thumbnail
-                    };
-                    books.push(book);
-                }
-          });
-        }
-        res.render("book-search", { books, listBooks: true });
-      } else {
-          res.render("book-search", { listBooks: false });
+        resArray.forEach((ele) => {
+          if (
+            ele.volumeInfo.title &&
+            ele.volumeInfo.authors &&
+            ele.volumeInfo.publisher &&
+            ele.volumeInfo.publishedDate &&
+            ele.volumeInfo.imageLinks
+          ) {
+            let book = {
+              title: ele.volumeInfo.title,
+              authors: ele.volumeInfo.authors,
+              publisher: ele.volumeInfo.publisher,
+              publishedDate: ele.volumeInfo.publishedDate,
+              imgUrl: ele.volumeInfo.imageLinks.thumbnail,
+            };
+            books.push(book);
+          }
+        });
       }
+      res.render("book-search", { books, listBooks: true });
+    } else {
+      res.render("book-search", { listBooks: false });
+    }
   } catch (err) {
     console.log("This error was caught " + err);
   }
@@ -86,11 +93,16 @@ router.get("/create", async (req, res) => {
     imgUrl: req.query.imageUrl,
     create: true,
   };
-  res.render("profile", { book, posts, user: req.user.dataValues, edit: false });
+  res.render("profile", {
+    book,
+    posts,
+    user: req.user.dataValues,
+    edit: false,
+  });
 });
 
 router.get("/edit", async (req, res) => {
-  console.log(req.user)
+  console.log(req.user);
   let posts = await db.book_post.findAll({
     where: {
       userId: req.user.dataValues.id,
@@ -99,8 +111,28 @@ router.get("/edit", async (req, res) => {
   let book = {
     create: false,
   };
+  res.render("profile", { posts, book, edit: true, user: req.user.dataValues });
+});
+
+router.post("/edit", (req, res) => {
+  console.log("ENTERED THE POST ROUTE");
+  let { fullname, bio } = req.body;
   
-  res.render("profile", { posts, book, edit: true, user: req.user.dataValues })
-})
+  db.user
+    .update(
+      {
+        fullname,
+        bio,
+      },
+      {
+        where: {
+          id: req.user.id,
+        },
+      }
+    )
+    .then((dbRes) => {
+      res.redirect('/profile')
+    });
+});
 
 module.exports = router;

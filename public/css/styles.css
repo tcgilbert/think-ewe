@@ -33,6 +33,10 @@ body {
     height: 159px;
 }
 
+textarea {
+    width: 100%;
+}
+
 /* Book search styling */
 .img-frame {
     background-color: lightgray;
