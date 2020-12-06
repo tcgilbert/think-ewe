@@ -82,7 +82,7 @@
           <input type="hidden" name="cover" value="<%= book.imgUrl %>" />
           <input id="rating" type="hidden" name="rating" value="" />
           <input type="hidden" name="userId" value="<%= user.id %>" />
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-dark">Create</button>
         </form>
         <a href="/profile">Cancel</a>
       </div>
@@ -200,7 +200,7 @@
           >
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-info">Edit</button>
+          <button type="submit" class="btn btn-dark">Edit</button>
           <a class="btn btn-danger" href="/profile">Cancel</a>
         </form>
       </div>
@@ -226,7 +226,7 @@
         <br />
         <h6 style="display: inline">Bio</h6>
         <p id="bio"><%= user.bio %></p>
-        <a class="btn btn-info btn-block" href="/profile/edit"
+        <a class="btn btn-dark btn-block" href="/profile/edit"
           >Edit Profile</a
         >
       </div>

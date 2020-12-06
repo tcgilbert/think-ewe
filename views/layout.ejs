@@ -21,7 +21,10 @@
   </head>
   <body>
     <nav class="navbar fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">Think Ewe</a>
+      <div>
+        <img class="logo-nav" src="/static/img/logo-white.png" alt="" />
+        <a class="navbar-brand" href="/">Think Ewe</a>
+      </div>
       <div class="d-flex">
         <% if (isLoggedIn) { %>
         <a
@@ -50,7 +53,6 @@
           >Register</a
         >
         <% } %>
-
       </div>
     </nav>
 

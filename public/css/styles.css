@@ -12,7 +12,15 @@ body {
     border: 2px solid red;
 }
 
+.welcome-logo {
+  width: 200px;  
+  height: 200px;
+}
 
+.logo-nav {
+    width: 50px;  
+    height: 50px;
+}
 
 #wrap {
     min-height: 100%;
@@ -31,7 +39,7 @@ body {
 /* Profile page styling */
 #profile-pic {
     border-radius: 100%;
-    background-color: lightblue;
+    background-color: coral;
     border: 5px solid #222;
 }
 

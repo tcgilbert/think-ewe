@@ -1,20 +1,22 @@
 <%- include ('partials/messages.ejs') %>
 
 <!-- Search form -->
-<form
-  action="/profile/find-books"
-  class="form-inline d-flex justify-content-center md-form form-sm mt-4"
->
-  <i class="fas fa-search" aria-hidden="true"></i>
-  <input
-    class="form-control form-control-sm ml-3 w-75"
-    type="text"
-    name="search"
-    placeholder="Search Books"
-    aria-label="Search"
-  />
-  <button class="ml-2 btn btn-danger btn-sm" type="submit">Search</button>
-</form>
+<div class="mt-5">
+  <form
+    action="/profile/find-books"
+    class="form-inline d-flex justify-content-center md-form form-sm mt-4"
+  >
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input
+      class="form-control form-control-sm ml-3 w-75"
+      type="text"
+      name="search"
+      placeholder="Search Books"
+      aria-label="Search"
+    />
+    <button class="ml-2 btn btn-danger btn-sm" type="submit">Search</button>
+  </form>
+</div>
 
 <div class="container-fluid mt-4">
   <% if (listBooks) { %> <% books.forEach((book) => { %>
@@ -36,14 +38,13 @@
           <input type="hidden" name="title" value="<%= book.title %>" />
           <input type="hidden" name="authors" value="<%= book.authors %>" />
           <input type="hidden" name="imageUrl" value="<%= book.imgUrl %>" />
-          <button type="submit" class="btn btn-lg btn-info">Select</button>
+          <button type="submit" class="btn btn-md btn-dark">Select</button>
         </form>
       </div>
     </div>
   </div>
 
   <% }) %> <% } %>
-  
 
   <script>
     let titleInput = document.getElementById("title");
