@@ -20,13 +20,22 @@
     <title>Think Ewe</title>
   </head>
   <body>
+
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+      <a class="navbar-brand">Navbar</a>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <form action="/users/login" method="POST">
+        <input type="hidden" name="email" value="tcgilbert94@gmail.com" />
+        <input type="hidden" name="password" value="Tbird131" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      </form>
+    </nav>
+
     <div class="container-fluid"><%- body %></div>
 
-    <form action="/users/login" method="POST">
-      <input type="hidden" name="email" value="tcgilbert94@gmail.com" />
-      <input type="hidden" name="password" value="Tbird131" />
-      <input type="submit" />
-    </form>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
