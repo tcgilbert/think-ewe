@@ -13,53 +13,46 @@
     placeholder="Search Books"
     aria-label="Search"
   />
+  <button class="ml-2 btn btn-danger btn-sm" type="submit">Search</button>
 </form>
 
 <div class="container-fluid mt-4">
-  <% if (listBooks) { %>
+  <% if (listBooks) { %> <% books.forEach((book) => { %>
 
-  <div class="row">
-    <% books.forEach((book) => { %>
-    <div class="col">
-      <div class="card mt-3" style="width: 15rem; height: 25rem">
-        <div class="img-frame">
-          <div class="img-container">
-            <img
-              id="book-img"
-              src="<%= book.imgUrl %> "
-              class="img-thumbnail card-img-top"
-              alt="Book Cover"
-            />
-          </div>
-        </div>
-        <div class="card-body card-info">
-          <% if (book.title) { %>
-          <h5 class="card-title"><%= book.title %></h5>
-          <% } %> <% if (book.authors != null) { %>
-          <p class="card-text"><%= book.authors[0] %></p>
-          <% } %>
+  <div class="book-search-container">
+    <div class="row p-2">
+      <div class="col-auto">
+        <img id="book-img" src="<%= book.imgUrl %> " alt="Book Cover" />
+      </div>
 
-          <form action="/profile/create" method="GET">
-            <input type="hidden" name="title" value="<%= book.title %>" />
-            <input type="hidden" name="authors" value="<%= book.authors %>" />
-            <input type="hidden" name="imageUrl" value="<%= book.imgUrl %>" />
-            <button type="submit" class="btn btn-primary">Select</button>
-          </form>
-        </div>
+      <div class="col">
+        <% if (book.title) { %>
+        <h5 class="card-title"><%= book.title %></h5>
+        <% } %> <% if (book.authors != null) { %>
+        <p>By: <%= book.authors[0] %></p>
+        <% } %>
+
+        <form action="/profile/create" method="GET">
+          <input type="hidden" name="title" value="<%= book.title %>" />
+          <input type="hidden" name="authors" value="<%= book.authors %>" />
+          <input type="hidden" name="imageUrl" value="<%= book.imgUrl %>" />
+          <button type="submit" class="btn btn-lg btn-info">Select</button>
+        </form>
       </div>
     </div>
-    <% }) %>
   </div>
-  <% } %>
+
+  <% }) %> <% } %>
+  
+
+  <script>
+    let titleInput = document.getElementById("title");
+
+    function addModalData(title) {
+      console.log("hi from function");
+      titleInput.value = title;
+    }
+
+    console.log(titleInput);
+  </script>
 </div>
-
-<script>
-  let titleInput = document.getElementById("title");
-
-  function addModalData(title) {
-    console.log("hi from function");
-    titleInput.value = title;
-  }
-
-  console.log(titleInput);
-</script>

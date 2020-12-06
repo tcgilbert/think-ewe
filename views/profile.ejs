@@ -165,7 +165,7 @@
         <br />
         <h6 style="display: inline">Bio</h6>
         <p id="bio"><%= user.bio %></p>
-        <a class="btn btn-secondary btn-block" href="/profile/edit"
+        <a class="btn btn-info btn-block" href="/profile/edit"
           >Edit Profile</a
         >
       </div>
@@ -174,7 +174,7 @@
     <!-- feed -->
     <div class="col">
       <div class="mt-5">
-        <a class="btn btn-primary" href="/profile/find-books"
+        <a class="btn btn-block btn-dark" href="/profile/find-books"
           >Create new post</a
         >
       </div>
@@ -262,7 +262,7 @@
                       name="userId"
                       value="<%= post.dataValues.userId%>"
                     />
-                    <button class="btn btn-small btn-info" type="submit">Delete</button>
+                    <button class="btn btn-small btn-danger" type="submit">Delete</button>
                   </form>
                 </div>
               </div>
