@@ -3,25 +3,26 @@
     <div class="col-md-6 m-auto">
       <div class="card card-body">
         <h1 class="text-center mb-3">Welcome <%= user.fullname %>!</h1>
-        <p class="text-center lead mb-3">To get started, Who are some of your favorite authors?</p>
+        <p class="text-center lead mb-3">To get started, tell us a little about yourself?</p>
         <%- include ('partials/messages.ejs') %> 
 
-        <form action="/TBD" method="POST">
+        <form id="dash-form" action="/dashboard" method="POST">
           <div class="form-group">
-            <label for="email">Favorite Authors</label>
+            <label for="email">Select Avatar</label>
             <input
               type="email"
               id="email"
               name="email"
               class="form-control"
-              placeholder="Enter Author Name"
+              placeholder="Avatar"
             />
           </div>
+          <label for="bio-text">Enter Bio: (optional)</label>
+          <textarea id="bio-text" name="bio" form="dash-form"></textarea>
           <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
 
         <p class="lead mt-4">
-        <a href="/profile">Skip this step</a>
         </p>
       </div>
     </div>

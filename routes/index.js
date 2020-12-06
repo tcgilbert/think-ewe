@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { ensureAuthenticated } = require('../config/auth')
+const { ensureAuthenticated } = require('../config/auth');
+const db = require('../models');
 
 
 // Welcome Page
@@ -10,7 +11,31 @@ router.get('/', (req, res) => {
 
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
-    res.render('dashboard', { user: req.user });
+    if (req.user.registered) {
+        res.redirect('/profile');
+    } else {
+        res.render('dashboard', { user: req.user });
+    }
+
+});
+
+router.post('/dashboard', (req, res) => {
+    let { bio } = req.body;
+    db.user
+    .update(
+      {
+        registered: true,
+        bio,
+      },
+      {
+        where: {
+          id: req.user.id,
+        },
+      }
+    )
+    .then((dbRes) => {
+      res.redirect('/profile')
+    });
 });
 
 
