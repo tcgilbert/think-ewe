@@ -20,7 +20,7 @@
     <title>Think Ewe</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-dark bg-dark">
       <a class="navbar-brand" href="/">Think Ewe</a>
       <div class="d-flex">
         <% if (isLoggedIn) { %>
@@ -61,7 +61,21 @@
       </div>
     </nav>
 
-    <div class="container-fluid"><%- body %></div>
+    <div id="wrap">
+      <div class="container-fluid"><%- body %></div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+      <footer class="navbar-fixed-bottom">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+          © 2020 Copyright:
+          <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
