@@ -9,6 +9,8 @@ router.get('/', (req, res) => {
   console.log(req.user);
     if (req.user == null) {
       res.render('welcome', { isLoggedIn: false})
+    } else {
+      res.render('welcome', { isLoggedIn: true})
     }
 })
 

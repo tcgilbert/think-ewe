@@ -4,12 +4,18 @@
     <div class="col-md-6 m-auto">
       <div class="card card-body text-center">
         <h1>Think Ewe</h1>
-        
-        <p>Create an account or login</p>
-        <a href="/users/register" class="btn btn-info btn-block mb-2"
-          >Register</a
+        <% if (isLoggedIn) { %>
+          <p>It looks like you are already logged in!</p>
+          <a href="/profile" class="btn btn-info btn-block mb-2"
+          >My Profile</a
         >
-        <a href="/users/login" class="btn btn-danger btn-block">Login</a>
+        <% } else { %>
+          <p>Create an account or login</p>
+          <a href="/users/register" class="btn btn-info btn-block mb-2"
+            >Register</a
+          >
+          <a href="/users/login" class="btn btn-danger btn-block">Login</a>
+        <% } %> 
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@
       <div class="d-flex">
         <% if (isLoggedIn) { %>
         <a
-          class="btn btn-outline-danger my-2 my-sm-0"
+          class="btn btn-outline-danger my-2 my-sm-0 mr-3"
           href="/profile"
           class="btn btn-secondary"
           >Profile</a
@@ -38,7 +38,7 @@
         >
         <% } else { %>
         <a
-          class="btn btn-outline-danger my-2 my-sm-0"
+          class="btn btn-outline-danger my-2 my-sm-0 mr-3"
           href="/users/login"
           class="btn btn-secondary"
           >LogIn</a
@@ -51,13 +51,6 @@
         >
         <% } %>
 
-        <form action="/users/login" method="POST">
-          <input type="hidden" name="email" value="tcgilbert94@gmail.com" />
-          <input type="hidden" name="password" value="Tbird131" />
-          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-            Developer login
-          </button>
-        </form>
       </div>
     </nav>
 
@@ -68,10 +61,17 @@
     <!-- Footer -->
     <div id="footer">
       <footer class="navbar-fixed-bottom">
+        <form action="/users/login" method="POST">
+          <input type="hidden" name="email" value="tcgilbert94@gmail.com" />
+          <input type="hidden" name="password" value="Tbird131" />
+          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+            Developer login
+          </button>
+        </form>
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">
-          © 2020 Copyright:
-          <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+          Built by Thomas Gilbert
+          <a href="https://github.com/tcgilbert/think-ewe">Github Repo</a>
         </div>
         <!-- Copyright -->
       </footer>
