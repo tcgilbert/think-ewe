@@ -42,6 +42,10 @@ body {
     width: 300;
 }
 
+.star-div {
+    margin: auto 0;
+}
+
 textarea {
     width: 100%;
 }

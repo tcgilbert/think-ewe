@@ -151,7 +151,7 @@
 <!-- Bio -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-auto helper">
+    <div class="col-md-auto">
       <div class="profile-pic mt-5">
         <img
           id="profile-pic"
@@ -172,7 +172,7 @@
     </div>
 
     <!-- feed -->
-    <div class="col helper">
+    <div class="col">
       <div class="mt-5">
         <a class="btn btn-primary" href="/profile/find-books"
           >Create new post</a
@@ -190,61 +190,57 @@
                   alt="book Cover"
                 />
               </div>
-              <div class="col-sm">
-                <div class="container pl-0">
-                  <div class="row">
-                    <div class="col">
-                      <h2><%= post.dataValues.title %></h2>
-                      <p class="post-author">
-                        By: <%= post.dataValues.author %>
-                      </p>
-                    </div>
+              <div class="col d-flex flex-column justify-content-between">
+                <div>
+                  <div>
+                    <h2><%= post.dataValues.title %></h2>
+                    <p class="post-author">By: <%= post.dataValues.author %></p>
                   </div>
+                </div>
 
-                  <div class="row mt-5">
-                    <div class="col">
-                      <div>
-                        <% if (post.dataValues.rating === 1) { %>
-                        <img
-                          id="star-one"
-                          class="star"
-                          src="/static/img/star.svg"
-                          alt="star outline"
-                        />
-                        <% } %> <% if (post.dataValues.rating === 2) { %>
-                        <img
-                          id="star-one"
-                          class="star"
-                          src="/static/img/star.svg"
-                          alt="star outline"
-                        />
-                        <img
-                          id="star-one"
-                          class="star"
-                          src="/static/img/star.svg"
-                          alt="star outline"
-                        />
-                        <% } %> <% if (post.dataValues.rating === 3) { %>
-                        <img
-                          id="star-one"
-                          class="star"
-                          src="/static/img/star.svg"
-                          alt="star outline"
-                        />
-                        <img
-                          id="star-one"
-                          class="star"
-                          src="/static/img/star.svg"
-                          alt="star outline"
-                        />
-                        <img
-                          id="star-one"
-                          class="star"
-                          src="/static/img/star.svg"
-                          alt="star outline"
-                        />
-                        <% } %>
-                      </div>
+                <div>
+                  <div>
+                    <div>
+                      <% if (post.dataValues.rating === 1) { %>
+                      <img
+                        id="star-one"
+                        class="star"
+                        src="/static/img/star.svg"
+                        alt="star outline"
+                      />
+                      <% } %> <% if (post.dataValues.rating === 2) { %>
+                      <img
+                        id="star-one"
+                        class="star"
+                        src="/static/img/star.svg"
+                        alt="star outline"
+                      />
+                      <img
+                        id="star-one"
+                        class="star"
+                        src="/static/img/star.svg"
+                        alt="star outline"
+                      />
+                      <% } %> <% if (post.dataValues.rating === 3) { %>
+                      <img
+                        id="star-one"
+                        class="star"
+                        src="/static/img/star.svg"
+                        alt="star outline"
+                      />
+                      <img
+                        id="star-one"
+                        class="star"
+                        src="/static/img/star.svg"
+                        alt="star outline"
+                      />
+                      <img
+                        id="star-one"
+                        class="star"
+                        src="/static/img/star.svg"
+                        alt="star outline"
+                      />
+                      <% } %>
                     </div>
                   </div>
                 </div>
@@ -256,8 +252,16 @@
                 </p>
                 <div>
                   <form action="/profile/book-post" method="POST">
-                    <input type="hidden" name="id" value="<%= post.dataValues.id%>">
-                    <input type="hidden" name="userId" value="<%= post.dataValues.userId%>">
+                    <input
+                      type="hidden"
+                      name="id"
+                      value="<%= post.dataValues.id%>"
+                    />
+                    <input
+                      type="hidden"
+                      name="userId"
+                      value="<%= post.dataValues.userId%>"
+                    />
                     <button type="submit">Delete</button>
                   </form>
                 </div>
