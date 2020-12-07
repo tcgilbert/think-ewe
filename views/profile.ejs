@@ -239,6 +239,10 @@
           >Create new post</a
         >
       </div>
+      <% if (posts.length === 0) { %>
+      
+      <h1 class="empty-page-text">Log Your First Book &#8593</h1>
+      <% } %>
       <div class="mt-3">
         <% posts.forEach((post) =>{ %>
         <div class="book-post">

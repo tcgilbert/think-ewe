@@ -18,6 +18,13 @@
   </form>
 </div>
 
+<% if (!listBooks) { %>
+  <div class="container d-flex flex-column mt-5 align-items-center">
+    <h1 class="empty-page-text2">Enter Search &#8593</h1>
+    <img class="book-search-logo" src="/static/img/logo-gray.png" alt="">
+  </div>
+<% } %>
+
 <div class="container-fluid mt-4">
   <% if (listBooks) { %> <% books.forEach((book) => { %>
 

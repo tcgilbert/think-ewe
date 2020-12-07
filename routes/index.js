@@ -6,7 +6,6 @@ const db = require('../models');
 
 // Welcome Page
 router.get('/', (req, res) => {
-  console.log(req.user);
     if (req.user == null) {
       res.render('welcome', { isLoggedIn: false})
     } else {

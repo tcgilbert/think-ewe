@@ -50,6 +50,13 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/usersAuth'));
 app.use('/profile', require('./routes/userProfile'));
+app.use((req, res, next) => {
+    if (req.user != null) {
+        res.render('error', {isLoggedIn: true})
+    } else {
+        res.render('error', {isLoggedIn: false})
+    }
+})
 
 
 // PORT

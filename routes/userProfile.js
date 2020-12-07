@@ -11,6 +11,8 @@ router.get("/", ensureAuthenticated, async (req, res) => {
       userId: req.user.dataValues.id,
     },
   });
+  console.log("POSTS RIGHT HEREEEE!");
+  console.log(posts);
   let book = {
     create: false,
   };
