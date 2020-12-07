@@ -30,9 +30,7 @@ Anyways... Click here to check it out! <a href="https://think-ewe.herokuapp.com/
 --------------------------------------------------------
 ## Personal Comments
 
-First thing I would like to note is that though this project meets all the requirements prescribed, it is still a work in progress as there are still many features I would like to add. 
-
-Being that I only had a week to build this app there were a lot of features I had envistioned left on the table, and (time-permitting) one day I would like to add these
+First thing I would like to note is that though this project meets all the requirements prescribed, it is still a work in progress. Being that I only had a week to build this app there were a lot of features I had envistioned left on the table, and (time-permitting) one day I would like to add the following
 - Following and Followers feed
 - Likes and comments on posts
 - Varying post content: quotes, authors, maybe even blogs
