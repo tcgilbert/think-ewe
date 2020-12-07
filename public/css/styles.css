@@ -50,6 +50,10 @@ body {
     border: 5px solid #222;
 }
 
+.personal-col {
+    max-width: 350px;
+}
+
 .empty-page-text {
     font-size: 100px;
     color: lightgray;
