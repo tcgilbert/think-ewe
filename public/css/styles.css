@@ -166,6 +166,10 @@ textarea {
     border-radius: 100%;
 }
 
+.avatar-edit:hover {
+    cursor: pointer;
+}
+
 .avatar:hover {
     cursor: pointer;
 }
