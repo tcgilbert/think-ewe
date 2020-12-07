@@ -60,24 +60,45 @@
       <div class="container-fluid"><%- body %></div>
     </div>
 
+    
     <!-- Footer -->
-    <div id="footer">
-      <footer class="navbar-fixed-bottom">
-        <form action="/users/login" method="POST">
-          <input type="hidden" name="email" value="tcgilbert94@gmail.com" />
-          <input type="hidden" name="password" value="Tbird131" />
-          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-            Developer login
-          </button>
-        </form>
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">
-          Built by Thomas Gilbert
-          <a target="_blank" href="https://github.com/tcgilbert/think-ewe">Github Repo</a>
+    <footer class="footer pt-4">
+      <!-- Footer Elements -->
+      <div class="container-fluid">
+        <!-- Social buttons -->
+        <div class="socials mt-2 d-flex flex-row justify-content-center">
+          
+          <h6 class="mt-1">Created by Thomas Gilbert</h6>
+          <div class="ml-4 mb-3">
+            <a target="_blank" href="https://www.linkedin.com/in/tcgilbert/" class="btn-floating btn-lg mx-1">
+            <i class="fab fa-linkedin-in"> </i>
+          </a>
+          
+          
+          
+          <a target="_blank" href="https://github.com/tcgilbert/think-ewe" class="btn-floating btn-lg mx-1">
+            <i class="fab fa-github"> </i>
+          </a></div>
+            
+         
+            
+          <form action="/users/login" method="POST">
+            <input type="hidden" name="email" value="tcgilbert94@gmail.com" />
+            <input type="hidden" name="password" value="Tbird131" />
+            <button class="btn btn-sm btn-outline-dark" type="submit">
+              quick login
+            </button>
+          </form>
+          
         </div>
-        <!-- Copyright -->
-      </footer>
-    </div>
+        <!-- Social buttons -->
+      </div>
+      <!-- Footer Elements -->
+      
+      <!-- Copyright -->
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
