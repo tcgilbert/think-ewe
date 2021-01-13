@@ -119,6 +119,9 @@ textarea {
     height: 150px;
 }
 
+.bio-box {
+    max-width: 300px;
+}
 
 
 

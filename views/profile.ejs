@@ -225,7 +225,9 @@
         <h4><%= user.username %></h4>
         <br />
         <h6 style="display: inline">Bio</h6>
-        <p id="bio"><%= user.bio %></p>
+        <div class="bio-box">
+          <p id="bio"><%= user.bio %></p>
+        </div>
         <a class="btn btn-dark btn-block" href="/profile/edit"
           >Edit Profile</a
         >
